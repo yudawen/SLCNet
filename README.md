@@ -32,9 +32,9 @@ Pytorch code for the paper "Long-Range Correlation Supervision for Land-Cover Cl
     #run the python file and the SLCNet model start training
     
 ## Predicting
-1. prepare your data, just the images would be feded into the model 
+1.prepare your data, just the images would be feded into the model 
 
-2. create a python file and input:
+2.create a python file and input:
     
     
     from predict_model import predict_multiclass_model
