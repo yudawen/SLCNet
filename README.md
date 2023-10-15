@@ -35,8 +35,8 @@ Pytorch code for the paper "Long-Range Correlation Supervision for Land-Cover Cl
 1. prepare your data, just the images would be feded into the model 
 
 2. create a python file and input:
-     
-        
+
+   
     from predict_model import predict_multiclass_model
 
     project_class_num=6
