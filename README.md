@@ -50,7 +50,7 @@ Pytorch code for the paper "Long-Range Correlation Supervision for Land-Cover Cl
 
 Contact: yudawen@whu.edu.cn. Any questions or discussions are welcomed!
 
-### Citation(https://doi.org/10.1109/TGRS.2023.3324706)
+### [Citation] (https://doi.org/10.1109/TGRS.2023.3324706)
  
 If you find this project useful for your research, please cite this work.
     
