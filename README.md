@@ -29,7 +29,7 @@ Pytorch code for the paper "Long-Range Correlation Supervision for Land-Cover Cl
     patch_size=512 #the size of your image/label tiles  
     train_multiclass_model(project_class_num,data_path,save_path, batchsize, epoch,patch_size)
     
-    #the SLCNet model start training
+    #run the python file and the SLCNet model start training
     
 ## Predicting
 1. prepare your data, just the images would be feded into the model 
@@ -46,7 +46,7 @@ Pytorch code for the paper "Long-Range Correlation Supervision for Land-Cover Cl
     patch_size=512 #usually 512
     predict_multiclass_model(project_class_num, imgpath,  weight_path,save_path, patch_size)
     
-    #the SLCNet model start predicting
+    #run the python file and the SLCNet model start predicting
 
 Contact: yudawen@whu.edu.cn. Any questions or discussions are welcomed!
 
