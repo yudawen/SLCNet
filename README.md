@@ -48,7 +48,6 @@ Pytorch code for the paper "Long-Range Correlation Supervision for Land-Cover Cl
     
     #run the python file and the SLCNet model start predicting
 
-Contact: yudawen@whu.edu.cn. Any questions or discussions are welcomed!
 
 ### Citation [link](https://doi.org/10.1109/TGRS.2023.3324706)
 
@@ -60,4 +59,5 @@ If you find this project useful for your research, please cite this work.
 1. 2023.10.13, We released the code of SCLNet. 
 2. 2023.10.15, We added the code for training and testing the SCLNet.
 
+Contact: yudawen@whu.edu.cn. Any questions or discussions are welcomed!
 
