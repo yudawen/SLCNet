@@ -37,7 +37,6 @@ Pytorch code for the paper "Long-Range Correlation Supervision for Land-Cover Cl
 2. create a python file and input:
 
    
-    
     from predict_model import predict_multiclass_model
 
     project_class_num=6
@@ -48,6 +47,7 @@ Pytorch code for the paper "Long-Range Correlation Supervision for Land-Cover Cl
     predict_multiclass_model(project_class_num, imgpath,  weight_path,save_path, patch_size)
     
     #run the python file and the SLCNet model start predicting
+   
 
 
 ### Citation [link](https://doi.org/10.1109/TGRS.2023.3324706)
