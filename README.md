@@ -36,7 +36,8 @@ Pytorch code for the paper "Long-Range Correlation Supervision for Land-Cover Cl
 
 2. create a python file and input:
 
-   
+
+
     from predict_model import predict_multiclass_model
 
     project_class_num=6
