@@ -206,7 +206,7 @@ class LRCS(nn.Module):
 
         loss=torch.tensor(0.0).cuda()
         vf = x.clone()#[:, :, :, :].contiguous()  # b,c,h,w
-        vf_view = vf.permute(0, 3, 2, 1).reshape(b * w, h, c).contiguous()  # b,w,half_h,c
+        vf_view = vf.permute(0, 3, 2, 1).reshape(b * w, h, c).contiguous()  # b,w,h,c
         x,vscores = self.msa_v(vf_view, vf_view)#
         x=x.reshape(b, w, h, c).permute(0, 3, 2, 1).contiguous() #+ vf
         if label!=None:
@@ -223,7 +223,7 @@ class LRCS(nn.Module):
         x = self.conv_v(x)
 
         hf = x.clone()#[:, :, :, :].contiguous()  # b,c,h,w
-        hf_view = hf.permute(0, 2, 3, 1).reshape(b * h, w, c).contiguous() # b,h,half_w,c
+        hf_view = hf.permute(0, 2, 3, 1).reshape(b * h, w, c).contiguous() # b,h,w,c
         x,hscores = self.msa_h(hf_view, hf_view)
         x=x.reshape(b, h, w, c).permute(0, 3, 1, 2).contiguous() #+ hf
         x = x + hf
