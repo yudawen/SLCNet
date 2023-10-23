@@ -3,8 +3,8 @@ Pytorch code for the paper "Long-Range Correlation Supervision for Land-Cover Cl
 
 ## Environment
 1. Python 3.7    
-2. pytoch>=1.5 torchvision>=0.6.0    
-3. opecncv-python
+2. pytorch>=1.5 torchvision>=0.6.0    
+3. opencv-python
 
 ## Training
 1.prepare your data    
