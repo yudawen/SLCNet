@@ -47,7 +47,14 @@ Pytorch code for the paper "Long-Range Correlation Supervision for Land-Cover Cl
     predict_multiclass_model(project_class_num, imgpath,  weight_path,save_path, patch_size)
     
     #run the python file and the SLCNet model start predicting
-   
+    
+## Main results
+
+|    Network   |          Dataset         |     mIoU/ave.F1 (%)   |
+|--------------|--------------------------|-----------------------|
+|    SLCNet    |      ISPRS Vaihingen     |        76.7/86.6      |
+|    SLCNet    |       ISPRS Potsdam      |        85.2/91.8      |
+|    SLCNet    |         Deep Globe       |        72.1/82.6      | 
 
 
 ### Citation [link](https://doi.org/10.1109/TGRS.2023.3324706)
