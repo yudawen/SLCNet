@@ -212,7 +212,7 @@ class LRCS(nn.Module):
         if label!=None:
             # b 1 h w ->b w,h,1->b w h h
             v_lable= label.permute(0, 3, 2, 1).repeat(1, 1, 1,h)
-            # b 1 h w ->b w,h,1->b w h h
+
             v_label_=label.permute(0, 3, 1, 2).repeat(1, 1, h,1)
 
             v_lable = F.softmax((v_lable==v_label_).float(), dim=3)
@@ -231,6 +231,7 @@ class LRCS(nn.Module):
         if label!=None:
             # b 1 h w ->b h,w,1->b h w w
             h_lable= label.permute(0, 2, 3, 1).repeat(1, 1, 1,w)
+            
             h_label_=label.permute(0, 2, 1, 3).repeat(1, 1, w,1)
 
 
@@ -239,51 +240,6 @@ class LRCS(nn.Module):
             loss+=self.loss_func(h_lable,hscores.reshape(b,h,w,w))
 
         return x,loss*10
-
-
-class FFM(nn.Module):
-
-    def __init__(self, in_channels1,in_channels2):
-        super(FFM, self).__init__()
-
-
-        self.channel_attention = nn.Sequential(
-            nn.Linear(in_channels1, in_channels1),
-            # nn.ReLU(),
-            # nn.Linear(in_channels1//4, in_channels1),
-
-        )
-
-        self.space_attention = nn.Sequential(
-            nn.Conv2d(1, 1, kernel_size=5, padding=2, bias=True),
-            # nn.ReLU(),
-            # nn.Conv2d(1, 1, kernel_size=3, padding=1, bias=True,dilation=3)
-
-
-        )
-
-    def forward(self,x1,x2):
-
-        # channel
-        out_c1 = nn.AdaptiveAvgPool2d((1, 1))(x1).squeeze(-1).squeeze(-1)
-        out_c1 = self.channel_attention(out_c1).unsqueeze(-1).unsqueeze(-1)
-
-        out_c1 = F.sigmoid(out_c1)
-        channel_att = x1 * out_c1
-        x1 = x1 + channel_att
-
-        # space
-        out_s1 = torch.mean(x2, dim=1,keepdim=True)
-        out_s1 = self.space_attention(out_s1)
-
-        out_s1 = F.sigmoid(out_s1)
-        space_att = x2 * out_s1
-        x2 = x2 + space_att
-
-        x=torch.cat((x1,x2),dim=1)
-
-
-        return x
 
 
 class UpBlockForUNetWithResNet50(nn.Module):
@@ -307,7 +263,6 @@ class UpBlockForUNetWithResNet50(nn.Module):
                 nn.Upsample(mode='bilinear', scale_factor=2),
                 nn.Conv2d(in_channels, out_channels, kernel_size=1, stride=1)
             )
-        # self.FFM=FFM(up_conv_out_channels,in_channels-up_conv_out_channels)
         self.conv_block_1 = ConvBlock(in_channels, out_channels)
         self.conv_block_2 = ConvBlock(out_channels, out_channels)
 
@@ -320,7 +275,6 @@ class UpBlockForUNetWithResNet50(nn.Module):
         x = self.upsample(up_x)
         if down_x!=None:
             x = torch.cat([x, down_x], 1)
-            # x=self.FFM(x,down_x)
         x = self.conv_block_1(x)
         x = self.conv_block_2(x)
         return x
