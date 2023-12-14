@@ -439,6 +439,7 @@ class SLCNet(nn.Module):
         del pre_pools
 
         if label!=None:
+            x = F.softmax(x, dim=1)
 
             loss +=self.loss_func(x, label.cuda())
 
