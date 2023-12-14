@@ -430,8 +430,11 @@ class SLCNet(nn.Module):
 
         for i in range(4):
             if label!=None:
-                side_outpus[i] = F.interpolate(side_outpus[i], size=(h, w), mode='nearest').cuda()
-                loss+=0.05*self.loss_func2(side_outpus[i],label.cuda())
+                label_ = label.unsqueeze(1).cuda()
+
+                label_ = F.interpolate(label_.float(), size=(side_outpus[i].size(2), side_outpus[i].size(3)), mode='nearest').long().cuda()
+
+                loss+=0.05*self.loss_func2(side_outpus[i],label_.squeeze(1).cuda())
 
         del pre_pools
 
