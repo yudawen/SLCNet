@@ -124,7 +124,6 @@ If you find this project useful for your research, please cite the following pap
 *Long-Range Correlation Supervision for Land-Cover Classification from Remote Sensing Images.*
 IEEE Transactions on Geoscience and Remote Sensing, vol. 61, pp. 1–14, 2023.
 
-**DOI:** [10.1109/TGRS.2023.3324706](https://doi.org/10.1109/TGRS.2023.3324706)
 
 ```bibtex
 @article{yu2023long,
